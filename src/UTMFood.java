@@ -10,17 +10,22 @@ public class UTMFood {
 
     public static void main(String[] args) {
         while (true) {
+            clearScreen();
             System.out.println("Welcome to UTMFood");
             System.out.println("1. Create Customer Account");
             System.out.println("2. Create Seller Account");
             System.out.println("3. Place Order");
             System.out.println("4. Display Customer Info");
             System.out.println("5. Display Seller Info");
-            System.out.println("6. Exit");
+            System.out.println("6. Add Menu for Seller");
+            System.out.println("7. Display Menu to Customer");
+            System.out.println("8. Exit");
 
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); // consume newline
+
+            clearScreen(); // Clear the screen before displaying the result of the choice
 
             switch (choice) {
                 case 1:
@@ -39,11 +44,33 @@ public class UTMFood {
                     displaySellerInfo();
                     break;
                 case 6:
+                    addMenuForSeller();
+                    break;
+                case 7:
+                    displayMenuToCustomer();
+                    break;
+                case 8:
                     System.out.println("Thank you for using UTMFood. Goodbye!");
                     return;
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
+
+            System.out.println("Press Enter to continue...");
+            scanner.nextLine(); // Wait for the user to press Enter
+        }
+    }
+
+    private static void clearScreen() {
+        try {
+            if (System.getProperty("os.name").contains("Windows")) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
+            }
+        } catch (Exception e) {
+            System.out.println("Error clearing screen: " + e.getMessage());
         }
     }
 
@@ -127,6 +154,31 @@ public class UTMFood {
         Seller seller = findSellerByUsername(username);
         if (seller != null) {
             seller.displayInfo();
+        } else {
+            System.out.println("Seller not found.");
+        }
+    }
+
+    private static void addMenuForSeller() {
+        System.out.print("Enter Seller Username: ");
+        String username = scanner.nextLine();
+        Seller seller = findSellerByUsername(username);
+        if (seller != null) {
+            seller.putUpOrder();
+        } else {
+            System.out.println("Seller not found.");
+        }
+    }
+
+    private static void displayMenuToCustomer() {
+        System.out.print("Enter Seller Username: ");
+        String username = scanner.nextLine();
+        Seller seller = findSellerByUsername(username);
+        if (seller != null) {
+            System.out.println("Available Menus:");
+            for (Menu menu : seller.getMenuList()) {
+                menu.displayMenu();
+            }
         } else {
             System.out.println("Seller not found.");
         }
