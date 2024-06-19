@@ -1,7 +1,6 @@
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Order implements Serializable {
+public class Order{
     private ArrayList<Menu> foodOrder;
     private String orderId;
     private double orderPrice;

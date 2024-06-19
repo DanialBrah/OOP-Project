@@ -1,10 +1,10 @@
 public abstract class Account{
-    protected String username;
-    protected String password;
-    protected String name;
-    protected String address;
-    protected String email;
-    protected String phone;
+    private String username;
+    private String password;
+    private String name;
+    private String address;
+    private String email;
+    private String phone;
 
     public Account(String username, String password, String name, String address, String email, String phone) {
         this.username = username;
@@ -38,6 +38,7 @@ public abstract class Account{
     public String getPhone() {
         return phone;
     }
-
-    public abstract void createAccount();
+    
+    public abstract Account createAccount();
+    public abstract void displayInfo();
 }
