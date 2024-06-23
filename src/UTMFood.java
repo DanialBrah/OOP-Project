@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class UTMFood {
     private static List<Customer> customers = new ArrayList<>();
@@ -9,6 +12,9 @@ public class UTMFood {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+
+        loadMenuToAllSellers("menu.txt");
+
         while (true) {
             clearScreen();
             System.out.println("Welcome to UTMFood");
@@ -19,7 +25,8 @@ public class UTMFood {
             System.out.println("5. Display Seller Info");
             System.out.println("6. Add Menu for Seller");
             System.out.println("7. Display Menu to Customer");
-            System.out.println("8. Exit");
+            System.out.println("8. Load Menu from File for Seller");
+            System.out.println("9. Exit");
 
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
@@ -50,6 +57,8 @@ public class UTMFood {
                     displayMenuToCustomer();
                     break;
                 case 8:
+                    loadMenuFromFile();
+                case 9:
                     System.out.println("Thank you for using UTMFood. Goodbye!");
                     return;
                 default:
@@ -175,10 +184,26 @@ public class UTMFood {
         String username = scanner.nextLine();
         Seller seller = findSellerByUsername(username);
         if (seller != null) {
-            System.out.println("Available Menus:");
+            System.out.println("Available Menus: \n");
+            
             for (Menu menu : seller.getMenuList()) {
+
                 menu.displayMenu();
             }
+        } else {
+            System.out.println("Seller not found.");
+        }
+    }
+
+    private static void loadMenuFromFile() {
+        System.out.print("Enter Seller Username: ");
+        String username = scanner.nextLine();
+        Seller seller = findSellerByUsername(username);
+        if (seller != null) {
+            System.out.print("Enter filename: ");
+            String menu = scanner.nextLine();
+            seller.menuFile(menu);
+            System.out.println("Menu loaded from file successfully!");
         } else {
             System.out.println("Seller not found.");
         }
@@ -209,5 +234,27 @@ public class UTMFood {
             }
         }
         return null;
+    }
+
+    private static void loadMenuToAllSellers(String filename) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            String line;
+            List<Menu> globalMenuList = new ArrayList<>();
+            while ((line = reader.readLine()) != null) {
+                String[] menuDetails = line.split(",");
+                int menuId = Integer.parseInt(menuDetails[0]);
+                String menuName = menuDetails[1];
+                double price = Double.parseDouble(menuDetails[2]);
+                String category = menuDetails[3];
+                Menu menu = new Menu(menuId, menuName, price, category);
+                globalMenuList.add(menu);
+            }
+
+            for (Seller seller : sellers) {
+                seller.getMenuList().addAll(globalMenuList);
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading file: " + e.getMessage());
+        }
     }
 }
