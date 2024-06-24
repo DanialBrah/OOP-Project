@@ -17,7 +17,9 @@ public class UTMFood {
 
         while (true) {
             clearScreen();
-            System.out.println("Welcome to UTMFood");
+            System.out.println("-----------------------------------------------------");
+            System.out.println("                   Welcome to UTMFood");
+            System.out.println("-----------------------------------------------------");
             System.out.println("1. Create Customer Account");
             System.out.println("2. Create Seller Account");
             System.out.println("3. Place Order");
