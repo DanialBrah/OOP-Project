@@ -1,0 +1,3 @@
+1,Nasi lemak,5.0,Food
+2,Nasi Goreng,6.0,Food
+1,Ais kosong,0.5,Beverages

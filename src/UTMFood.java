@@ -28,7 +28,8 @@ public class UTMFood {
             System.out.println("6. Add Menu for Seller");
             System.out.println("7. Display Menu to Customer");
             System.out.println("8. Load Menu from File for Seller");
-            System.out.println("9. Exit");
+            System.out.println("9. Display Order");
+            System.out.println("0. Exit");
 
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
@@ -60,7 +61,11 @@ public class UTMFood {
                     break;
                 case 8:
                     loadMenuFromFile();
+                    break;
                 case 9:
+                    displayOrderToSeller();
+                    break;
+                case 0:
                     System.out.println("Thank you for using UTMFood. Goodbye!");
                     return;
                 default:
@@ -257,6 +262,20 @@ public class UTMFood {
             }
         } catch (IOException e) {
             System.out.println("Error reading file: " + e.getMessage());
+        }
+    }
+
+    private static void displayOrderToSeller()
+    {
+        System.out.print("Enter Seller Username: ");
+        String username = scanner.nextLine();
+        Seller seller = findSellerByUsername(username);
+        if (seller != null) {
+            System.out.println("Available Orders: \n");
+            
+            for (Order order : orders) {
+                order.displayOrder();
+            }
         }
     }
 }
