@@ -28,7 +28,7 @@ public class Menu {
     }
 
     public void displayMenu() {
-        System.out.println("Menu: " + menuName + " | Price: $" + price + " | Category: " + category);
+        System.out.println("ID: " +menuId+  " | Menu: " + menuName + " | Price: $" + price + " | Category: " + category);
         //add menu file
     }
 }
