@@ -338,6 +338,7 @@ public class UTMFood {
         }
     }*/
 
+   //Display order to seller
     private static void displayOrderToSeller()
     {
         System.out.println("Available Orders: \n");

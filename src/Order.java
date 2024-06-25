@@ -34,4 +34,14 @@ public class Order{
         }
         return total;
     }
+
+    //display order information
+    public void displayOrder() {
+        System.out.println("Order ID: " + orderId);
+        for (Menu menu : foodOrder) {
+            System.out.println("Menu: " + menu.getMenuName() + " | Price: $" + menu.getPrice() + " | Category: " + menu.getCategory());
+        }
+        System.out.println("Total: $" + calculateTotal());
+        System.out.println();
+    }
 }
