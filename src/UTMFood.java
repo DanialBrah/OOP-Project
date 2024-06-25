@@ -379,13 +379,26 @@ public class UTMFood {
     }*/
 
    //Display order to seller
-    private static void displayOrderToSeller()
-    {
-        System.out.println("Available Orders: \n");
-            
-            for (Order order : orders) {
-                order.displayOrder();
-            }
-            
-    }
+   private static void displayOrderToSeller()
+   {
+       System.out.println("Available Sellers:");
+        for (Seller seller : sellers) {
+            System.out.println("- " + seller.getUsername());
+        }
+        System.out.print("Enter Seller Username: ");
+       String username = scanner.nextLine();
+       Seller seller = findSellerByUsername(username);
+       if (seller != null) {
+           System.out.println("Available Orders: \n");
+           
+           for (Order order : orders) {
+               order.displayOrder();
+           }
+       }
+       System.out.println("Available Orders: \n");
+           
+           for (Order order : orders) {
+               order.displayOrder();
+           }
+       }
 }
