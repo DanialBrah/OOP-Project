@@ -4,3 +4,4 @@
 3,Burger,5.00,Food
 4,Pizza,20.00,Food
 5,Coffee,8.00,Drink
+6,Milo,3.00,Drink
