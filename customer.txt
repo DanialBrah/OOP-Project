@@ -3,4 +3,7 @@ hadi,hadi,hadi,KTDI,hadi@gmail.com,013526655
 s,s,s,s,s,s
 danial,123456,Danial,ktdi,danialemail,121212321
 Ghost,123456,Danial,kdoj,danan@gmail.com,13214141
+<<<<<<< Updated upstream
 lol,123456,khai,dawe@yahoo.com,dawdwas,1231441
+=======
+>>>>>>> Stashed changes
