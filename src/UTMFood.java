@@ -226,13 +226,17 @@ public class UTMFood {
         Order order = new Order(orderId);
 
         while (true) {
-            System.out.print("Enter Seller Username to add menu items from: ");
+            System.out.print("Enter Seller Username to add menu items from (n to finish): ");
             String sellerUsername = scanner.nextLine();
             Seller seller = findSellerByUsername(sellerUsername);
-            if (seller == null) {
+            if (sellerUsername.equals("n")){
+                break;
+            }
+            else if (seller == null) {
                 System.out.println("Seller not found.");
                 continue;
             }
+            
 
             System.out.println("Available Menus:");
             for (Menu menu : seller.getMenuList()) {
@@ -381,10 +385,6 @@ public class UTMFood {
    //Display order to seller
    private static void displayOrderToSeller()
    {
-       System.out.println("Available Sellers:");
-        for (Seller seller : sellers) {
-            System.out.println("- " + seller.getUsername());
-        }
         System.out.print("Enter Seller Username: ");
        String username = scanner.nextLine();
        Seller seller = findSellerByUsername(username);
@@ -393,12 +393,8 @@ public class UTMFood {
            
            for (Order order : orders) {
                order.displayOrder();
+               System.out.println(seller.getUsername());
            }
        }
-       System.out.println("Available Orders: \n");
-           
-           for (Order order : orders) {
-               order.displayOrder();
-           }
-       }
+    }
 }
