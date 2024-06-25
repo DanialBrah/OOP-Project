@@ -267,15 +267,21 @@ public class UTMFood {
 
     private static void displayOrderToSeller()
     {
-        System.out.print("Enter Seller Username: ");
-        String username = scanner.nextLine();
-        Seller seller = findSellerByUsername(username);
-        if (seller != null) {
-            System.out.println("Available Orders: \n");
+        // System.out.print("Enter Seller Username: ");
+        // String username = scanner.nextLine();
+        // Seller seller = findSellerByUsername(username);
+        // if (seller != null) {
+        //     System.out.println("Available Orders: \n");
+            
+        //     for (Order order : orders) {
+        //         order.displayOrder();
+        //     }
+        // }
+        System.out.println("Available Orders: \n");
             
             for (Order order : orders) {
                 order.displayOrder();
             }
-        }
+            
     }
 }
