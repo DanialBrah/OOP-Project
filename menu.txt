@@ -5,4 +5,4 @@
 5,Coffee,8.00,Drink
 6,Milo,3.00,Drink
 7,Chicken chop,10.0,Food
-8,Fried Rice,7.0,Food2,Eclair,4.0,Food
+8,Fried Rice,7.0,Food
