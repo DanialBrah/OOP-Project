@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-/*import java.io.BufferedReader;
+import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;*/
+import java.io.IOException;
 
 public class UTMFood {
     private static List<Customer> customers = new ArrayList<>();
@@ -13,7 +13,8 @@ public class UTMFood {
 
     public static void main(String[] args) {
 
-        //loadMenuToAllSellers("menu.txt");
+        createCustomerAccount();
+        createSellerAccount();
 
         boolean exit = false;
         while (!exit) {
@@ -73,7 +74,9 @@ public class UTMFood {
 
             switch (choice) {
                 case 1:
-                    createCustomerAccount();
+                    Customer customer = new Customer("", "", "", "", "", "");
+                    customers.add(customer.createAccount());
+                    System.out.println("Customer account created successfully!");
                     break;
                 case 2:
                     placeOrder();
@@ -120,7 +123,9 @@ public class UTMFood {
 
             switch (choice) {
                 case 1:
-                    createSellerAccount();
+                    Seller seller = new Seller("", "", "", "", "", "");
+                    sellers.add(seller.createAccount());
+                    System.out.println("Seller account created successfully!");
                     break;
                 case 2:
                     displaySellerInfo();
@@ -149,7 +154,6 @@ public class UTMFood {
         }
     }
     
-
     private static void clearScreen() {
         try {
             if (System.getProperty("os.name").contains("Windows")) {
@@ -164,17 +168,47 @@ public class UTMFood {
     }
 
     private static void createCustomerAccount() {
-        Customer customer = new Customer("", "", "", "", "", "");
+        try (BufferedReader br = new BufferedReader(new FileReader("customer.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] customerDetails = line.split(",");
+                String username = customerDetails[0];
+                String password = customerDetails[1];
+                String name = customerDetails[2];
+                String address = customerDetails[3];
+                String email = customerDetails[4];
+                String phone = customerDetails[5];
+                customers.add(new Customer(username, password, name, address, email, phone));
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading customers from file: " + e.getMessage());
+        }
+        /*Customer customer = new Customer("", "", "", "", "", "");
         customer = customer.createAccount();
         customers.add(customer);
-        System.out.println("Customer account created successfully!");
+        System.out.println("Customer account created successfully!");*/
     }
 
     private static void createSellerAccount() {
-        Seller seller = new Seller("", "", "", "", "", "");
+        try (BufferedReader br = new BufferedReader(new FileReader("seller.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] sellerDetails = line.split(",");
+                String username = sellerDetails[0];
+                String password = sellerDetails[1];
+                String name = sellerDetails[2];
+                String address = sellerDetails[3];
+                String email = sellerDetails[4];
+                String phone = sellerDetails[5];
+                sellers.add(new Seller(username, password, name, address, email, phone));
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading sellers from file: " + e.getMessage());
+        }
+        /*Seller seller = new Seller("", "", "", "", "", "");
         seller = seller.createAccount();
         sellers.add(seller);
-        System.out.println("Seller account created successfully!");
+        System.out.println("Seller account created successfully!");*/
     }
 
     private static void placeOrder() {

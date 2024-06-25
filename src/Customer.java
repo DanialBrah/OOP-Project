@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Customer extends Account {
@@ -30,7 +32,18 @@ public class Customer extends Account {
         String phone = scanner.nextLine();
 
         Customer newCustomer = new Customer(username, password, name, address, email, phone);
+
+        newCustomer.saveCusToFile("customer.txt");//save customer to customer.txt
+
         return newCustomer;
+    }
+
+    private void saveCusToFile(String filename){
+        try (FileWriter fw = new FileWriter(filename, true)) {
+            fw.write(getUsername() + "," + getPassword() + "," + getName() + "," + getAddress() + "," + getEmail() + "," + getPhone() + "\n");
+            } catch (IOException e) {
+                System.out.println("Error writing CUSTOMER to file: " + e.getMessage());
+            }
     }
 
     @Override

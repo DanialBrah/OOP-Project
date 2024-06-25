@@ -1,6 +1,0 @@
-1,Nasi Lemak,3.00,Food
-2,Float,8.00,Drink
-3,Frappe,14.00,Drink
-4,Burger,5.00,Food
-5,Pizza,20.00,Food
-6,Coffee,8.00,Drink

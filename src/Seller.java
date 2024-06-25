@@ -39,6 +39,8 @@ public class Seller extends Account {
         // Create a new Seller object with the entered information
         Seller newSeller = new Seller(username, password, name, address, email, phone);
 
+        newSeller.saveSellerToFile("seller.txt");//save seller to seller.txt
+
         // Load menu from file
         System.out.print("Do you want to load menu from file? (yes/no): ");
         String loadMenu = scanner.nextLine();
@@ -73,7 +75,7 @@ public class Seller extends Account {
 
         Menu newMenu = new Menu(menuId, menuName, price, category);
         menuList.add(newMenu);
-        appendMenuToFile(newMenu, "menu.txt");
+        saveMenuToFile(newMenu, "menu.txt");
 
         System.out.println("Menu added successfully!");
     }
@@ -95,12 +97,20 @@ public class Seller extends Account {
         }
     }
 
-    private void appendMenuToFile(Menu menu, String filename) {
+    private void saveMenuToFile(Menu menu, String filename) {
         try (FileWriter fw = new FileWriter(filename, true)) {
             fw.write(menu.getMenuId() + "," + menu.getMenuName() + "," + menu.getPrice() + "," + menu.getCategory() + "\n");
         } catch (IOException e) {
-            System.out.println("Error writing to file: " + e.getMessage());
+            System.out.println("Error writing MENU to file: " + e.getMessage());
         }
+    }
+
+    private void saveSellerToFile(String filename){
+        try (FileWriter fw = new FileWriter(filename, true)) {
+            fw.write(getUsername() + "," + getPassword() + "," + getName() + "," + getAddress() + "," + getEmail() + "," + getPhone() + "\n");
+            } catch (IOException e) {
+                System.out.println("Error writing SELLER to file: " + e.getMessage());
+            }
     }
 
     public List<Menu> getMenuList(){return menuList;}
