@@ -282,6 +282,7 @@ public class UTMFood {
         }
     }
 
+    //to input menu from keyboard
     private static void addMenuForSeller() {
         System.out.print("Enter Seller Username: ");
         String username = scanner.nextLine();
