@@ -1,1 +1,4 @@
 hadi,1234,Hadi Firdaus,KTDI,hadifirdaus03@gmail.com,0193502300
+khair,khair,khair,KTDI,khair@gmail.com,0123456
+cae,1234,Syahir Roswadi,KTDI,cae14@gmail.com,0122522586
+DanialBrah,123456,Danial,cengal,danial@yahoo.com,0132942460
