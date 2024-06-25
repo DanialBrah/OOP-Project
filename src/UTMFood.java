@@ -275,7 +275,7 @@ public class UTMFood {
         }
     }
 
-    /*private static void loadMenuFromFile() {
+    private static void loadMenuFromFile() {
         System.out.print("Enter Seller Username: ");
         String username = scanner.nextLine();
         Seller seller = findSellerByUsername(username);
@@ -287,7 +287,7 @@ public class UTMFood {
         } else {
             System.out.println("Seller not found.");
         }
-    }*/
+    }
 
     private static Customer findCustomerByUsername(String username) {
         for (Customer customer : customers) {
