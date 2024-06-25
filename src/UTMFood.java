@@ -15,67 +15,140 @@ public class UTMFood {
 
         loadMenuToAllSellers("menu.txt");
 
-        while (true) {
-            clearScreen();
+        boolean exit = false;
+        while (!exit) {
             System.out.println("-----------------------------------------------------");
             System.out.println("                   Welcome to UTMFood");
             System.out.println("-----------------------------------------------------");
-            System.out.println("1. Create Customer Account");
-            System.out.println("2. Create Seller Account");
-            System.out.println("3. Place Order");
-            System.out.println("4. Display Customer Info");
-            System.out.println("5. Display Seller Info");
-            System.out.println("6. Add Menu for Seller");
-            System.out.println("7. Display Menu to Customer");
-            System.out.println("8. Load Menu from File for Seller");
-            System.out.println("9. Display Order");
+            System.out.println("1. Customer Menu");
+            System.out.println("2. Seller Menu");
             System.out.println("0. Exit");
+
+            System.out.print("Choose an option: ");
+            int mainChoice = scanner.nextInt();
+            scanner.nextLine(); // consume newline
+
+            clearScreen(); // Clear the screen before displaying the result of the choice
+
+            switch (mainChoice) {
+                case 1:
+                    customerMenu();
+                    break;
+                case 2:
+                    sellerMenu();
+                    break;
+                case 0:
+                    System.out.println("Thank you for using UTMFood. Goodbye!");
+                    exit = true;
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+
+            if (!exit) {
+                System.out.println("Press Enter to continue...");
+                scanner.nextLine(); // Wait for the user to press Enter
+                clearScreen();
+            }
+        }
+    }
+
+    private static void customerMenu() {
+        boolean back = false;
+        while (!back) {
+            System.out.println("-----------------------------------------------------");
+            System.out.println("                    Customer Menu");
+            System.out.println("-----------------------------------------------------");
+            System.out.println("1. Create Customer Account");
+            System.out.println("2. Place Order");
+            System.out.println("3. Display Customer Info");
+            System.out.println("4. Display Menu to Customer");
+            System.out.println("0. Back to Main Menu");
 
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); // consume newline
 
-            clearScreen(); // Clear the screen before displaying the result of the choice
+            clearScreen();
 
             switch (choice) {
                 case 1:
                     createCustomerAccount();
                     break;
                 case 2:
-                    createSellerAccount();
-                    break;
-                case 3:
                     placeOrder();
                     break;
-                case 4:
+                case 3:
                     displayCustomerInfo();
                     break;
-                case 5:
-                    displaySellerInfo();
-                    break;
-                case 6:
-                    addMenuForSeller();
-                    break;
-                case 7:
+                case 4:
                     displayMenuToCustomer();
                     break;
-                case 8:
-                    loadMenuFromFile();
-                    break;
-                case 9:
-                    displayOrderToSeller();
-                    break;
                 case 0:
-                    System.out.println("Thank you for using UTMFood. Goodbye!");
-                    return;
+                    back = true;
+                    break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
 
-            System.out.println("Press Enter to continue...");
-            scanner.nextLine(); // Wait for the user to press Enter
+            if (!back) {
+                System.out.println("Press Enter to continue...");
+                scanner.nextLine(); // Wait for the user to press Enter
+                clearScreen();
+            }
         }
     }
+
+    private static void sellerMenu() {
+        boolean back = false;
+        while (!back) {
+            System.out.println("-----------------------------------------------------");
+            System.out.println("                     Seller Menu");
+            System.out.println("-----------------------------------------------------");
+            System.out.println("1. Create Seller Account");
+            System.out.println("2. Display Seller Info");
+            System.out.println("3. Add Menu for Seller");
+            System.out.println("4. Load Menu from File for Seller");
+            System.out.println("5. Display Order");
+            System.out.println("0. Back to Main Menu");
+
+            System.out.print("Choose an option: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // consume newline
+
+            clearScreen();
+
+            switch (choice) {
+                case 1:
+                    createSellerAccount();
+                    break;
+                case 2:
+                    displaySellerInfo();
+                    break;
+                case 3:
+                    addMenuForSeller();
+                    break;
+                case 4:
+                    loadMenuFromFile();
+                    break;
+                case 5:
+                    displayOrderToSeller();
+                    break;
+                case 0:
+                    back = true;
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+
+            if (!back) {
+                System.out.println("Press Enter to continue...");
+                scanner.nextLine(); // Wait for the user to press Enter
+                clearScreen();
+            }
+        }
+    }
+    
 
     private static void clearScreen() {
         try {
