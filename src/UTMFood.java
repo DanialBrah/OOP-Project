@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.io.BufferedReader;
+/*import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
+import java.io.IOException;*/
 
 public class UTMFood {
     private static List<Customer> customers = new ArrayList<>();
@@ -13,7 +13,7 @@ public class UTMFood {
 
     public static void main(String[] args) {
 
-        loadMenuToAllSellers("menu.txt");
+        //loadMenuToAllSellers("menu.txt");
 
         while (true) {
             clearScreen();
@@ -57,7 +57,7 @@ public class UTMFood {
                     displayMenuToCustomer();
                     break;
                 case 8:
-                    loadMenuFromFile();
+                    //loadMenuFromFile();
                 case 9:
                     System.out.println("Thank you for using UTMFood. Goodbye!");
                     return;
@@ -195,7 +195,7 @@ public class UTMFood {
         }
     }
 
-    private static void loadMenuFromFile() {
+    /*private static void loadMenuFromFile() {
         System.out.print("Enter Seller Username: ");
         String username = scanner.nextLine();
         Seller seller = findSellerByUsername(username);
@@ -207,7 +207,7 @@ public class UTMFood {
         } else {
             System.out.println("Seller not found.");
         }
-    }
+    }*/
 
     private static Customer findCustomerByUsername(String username) {
         for (Customer customer : customers) {
@@ -236,7 +236,7 @@ public class UTMFood {
         return null;
     }
 
-    private static void loadMenuToAllSellers(String filename) {
+    /*private static void loadMenuToAllSellers(String filename) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String line;
             List<Menu> globalMenuList = new ArrayList<>();
@@ -256,5 +256,5 @@ public class UTMFood {
         } catch (IOException e) {
             System.out.println("Error reading file: " + e.getMessage());
         }
-    }
+    }*/
 }
