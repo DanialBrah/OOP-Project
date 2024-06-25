@@ -294,6 +294,11 @@ public class UTMFood {
     }
 
     private static void displayMenuToCustomer() {
+        System.out.println("Available Sellers:");
+        for (Seller seller : sellers) {
+            System.out.println("- " + seller.getUsername());
+        }
+
         System.out.print("Enter Seller Username: ");
         String username = scanner.nextLine();
         Seller seller = findSellerByUsername(username);
