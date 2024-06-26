@@ -1,0 +1,8 @@
+1,Teh O Ais,2.00,Drink
+2,Kopi O Ais,3.00,Drink
+3,Lemon Ais,3.00,Drink
+4,Milo Ais,2.00,Drink
+5,Green Tea,3.00,Drink
+6,Ais Kosong,1.00,Drink
+7,Teh Ais,1.50,Drink
+8,Sirap Ais,2.0,Drink

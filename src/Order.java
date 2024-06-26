@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Order{
     private ArrayList<Menu> foodOrder;
     private String orderId;
+    private Customer c;
     private double orderPrice;
 
     public Order(String orderId) {

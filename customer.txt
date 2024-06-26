@@ -1,7 +1,5 @@
-Danial,Danial,Danial,KTDI,Danial@gmail.com,0123456
-hadi,hadi,hadi,KTDI,hadi@gmail.com,013526655
-s,s,s,s,s,s
-danial,123456,Danial,ktdi,danialemail,121212321
-Ghost,123456,Danial,kdoj,danan@gmail.com,13214141
-lol,123456,khai,dawe@yahoo.com,dawdwas,1231441
-Hadi,123456,Hadi daus,KDSE,dadnadnand@email.com,14123412
+phoenix,123456,Syafiq,ktdi,danial@email.com,0144124532
+Danial,123456,Danial Hakim,kdoj,danan@gmail.com,013214141
+Hadi,123456,Hadi daus,KDSE,dadnadnand@email.com,014123412
+Limbo,123456,Lim Bo,KTC,limbo23@gmail.com,0112324256
+Lio,111111,Lio Kock,KTF,lio@gmail.com,012241531lio,lio,lio,ktdi,lio,012345

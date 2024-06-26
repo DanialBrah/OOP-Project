@@ -1,4 +1,4 @@
-public abstract class Account{
+public abstract class Account implements User {
     private String username;
     private String password;
     private String name;
@@ -15,30 +15,39 @@ public abstract class Account{
         this.phone = phone;
     }
 
+    @Override
     public String getUsername() {
         return username;
     }
 
+    @Override
     public String getPassword() {
         return password;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public String getAddress() {
         return address;
     }
 
+    @Override
     public String getEmail() {
         return email;
     }
 
+    @Override
     public String getPhone() {
         return phone;
     }
-    
+
+    @Override
     public abstract Account createAccount();
+
+    @Override
     public abstract void displayInfo();
 }
