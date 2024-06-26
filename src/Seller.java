@@ -45,10 +45,6 @@ public class Seller extends Account {
         System.out.print("Do you want to load menu from file? (yes/no): ");
         String loadMenu = scanner.nextLine();
         if (loadMenu.equalsIgnoreCase("yes")) {
-            /*System.out.print("Enter filename: ");
-            String menuFileName = scanner.nextLine();
-            newSeller.menuFile(menuFileName);
-            System.out.println("Menu loaded from file successfully!");*/
             newSeller.menuFile("menu.txt");
             System.out.println("Menu loaded from file successfully!");
         }
